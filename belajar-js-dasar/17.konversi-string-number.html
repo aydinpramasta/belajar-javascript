@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Konversi String Number</title>
+  </head>
+  <body>
+    <script>
+      document.writeln(`<p>${parseInt("1.2345")}</p>`);
+      document.writeln(`<p>${parseFloat("1.2345")}</p>`);
+      document.writeln(`<p>${Number("1.2345")}</p>`);
+
+      const a = 10;
+      const b = 15;
+      const sum = a.toString() + b.toString();
+      document.writeln(`<p>${sum}</p>`);
+
+      document.writeln(`<p>${parseInt("1salah")}</p>`);
+      document.writeln(`<p>${parseFloat("1.213salah")}</p>`);
+      document.writeln(`<p>${Number("1.23salah")}</p>`);
+
+      document.writeln(`<p>${Number("1.23salah") + 10}</p>`);
+
+      document.writeln(`<p>${isNaN(Number("123salah"))}</p>`);
+      document.writeln(`<p>${isNaN(100)}</p>`);
+      document.writeln(`<p>${isNaN(Number("123"))}</p>`);
+    </script>
+  </body>
+</html>

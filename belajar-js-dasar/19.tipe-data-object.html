@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tipe Data Object</title>
+  </head>
+  <body>
+    <script>
+      const person = {
+        name: "John Doe",
+        address: "Indonesia",
+        age: 24,
+      };
+      console.table(person);
+
+      person.name = "James Doe";
+      person.hobby = "Fishing";
+      console.table(person);
+
+      console.info(`Nama: ${person.name}`);
+      console.info(`Alamat: ${person.address}`);
+      console.info(`Umur: ${person.age}`);
+
+      delete person.age;
+      console.table(person);
+    </script>
+  </body>
+</html>
