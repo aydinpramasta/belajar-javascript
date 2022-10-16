@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Operator In</title>
+  </head>
+  <body>
+    <script>
+      const person = {
+        firstName: "John",
+        middleName: undefined,
+        lastName: null,
+      };
+
+      console.log("firstName" in person); // true
+      console.log("middleName" in person); // true
+      console.log("lastName" in person); // true
+      console.log("fullName" in person); // false
+
+      const names = ["Doe"];
+      console.log(0 in names); // true
+      console.log(1 in names); // false
+    </script>
+  </body>
+</html>
