@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Arrow Function</title>
+  </head>
+  <body>
+    <script>
+      // mirip dengan anonymous function
+      /**
+       * beberapa limitasi arrow function:
+       * tidak bisa menggunakan function generator
+       * tidak bisa mengakses this (materi function di object)
+       * tidak bisa mengakses super (materi OOP)
+       */
+      const sum = (...values) => {
+        let total = 0;
+        for (let value of values) {
+          total += value;
+        }
+        return total;
+      };
+      console.log(sum(19, 23, 42, 219, 8888));
+
+      // jika logic anonymous function hanya satu baris saja, bisa langsung menulis logicnya tanpa menambah block {}
+      const sayHello = (name) => console.log(`Hello ${name}`);
+      sayHello("John Doe");
+
+      const giveMeFunction = (callback, parameter) => callback(parameter);
+      giveMeFunction(sayHello, "Sarah");
+      giveMeFunction((name) => console.log(`Hi ${name}`), "Butt");
+    </script>
+  </body>
+</html>

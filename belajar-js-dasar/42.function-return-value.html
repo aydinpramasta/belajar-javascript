@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Function Return Value</title>
+  </head>
+  <body>
+    <script>
+      function getGrade(score) {
+        if (score >= 90) return "A";
+        if (score >= 80) return "B";
+        if (score >= 70) return "C";
+        if (score >= 60) return "D";
+        return "E";
+      }
+      document.writeln(`<p>${getGrade(90)}</p>`);
+
+      function contains(haystack, needle) {
+        for (let value of haystack) {
+          if (value === needle) return true;
+        }
+        return false;
+      }
+      const array = [1, 8, 19, 27, 34, 42, 55];
+      document.writeln(`<p>${contains(array, 27)}</p>`);
+      document.writeln(`<p>${contains(array, 32)}</p>`);
+    </script>
+  </body>
+</html>

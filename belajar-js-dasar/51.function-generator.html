@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Function Generator</title>
+  </head>
+  <body>
+    <script>
+      function* getNames() {
+        yield "John";
+        yield "Doe";
+        yield "Sarah";
+        yield "Butt";
+      }
+
+      const names = getNames();
+      console.log(names);
+
+      // hasil dari function generator bersifat iterable, sehingga bisa di loop menggunakan for of
+      for (let name of names) {
+        console.log(name);
+      }
+
+      // function generator memiliki sifat lazy, hanya mengambil data yang dibutuhkan saja
+      function* buatGanjil(value) {
+        for (let i = 1; i <= value; i++) {
+          if (i % 2 === 1) {
+            console.log(`Yield ${i}`);
+            yield i;
+          }
+        }
+      }
+
+      // function biasa bersifat eager, akan mengambil semua data walaupun tidak dibutuhkan
+      function buatGanjilArray(value) {
+        let result = [];
+        for (let i = 1; i <= value; i++) {
+          if (i % 2 === 1) {
+            console.log(`Yield ${i}`);
+            result.push(i);
+          }
+        }
+        return result;
+      }
+
+      for (let ganjil of buatGanjil(5)) {
+        console.log(ganjil);
+      }
+
+      for (let ganjil of buatGanjilArray(5)) {
+        console.log(ganjil);
+      }
+
+      // value dari generator bisa diambil satu persatu
+      let angkaGanjil = buatGanjil(3);
+      console.log(angkaGanjil.next().value);
+      console.log(angkaGanjil.next().value);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rest Parameter</title>
+  </head>
+  <body>
+    <script>
+      function sum(...values) {
+        let total = 0;
+        for (let value of values) {
+          total += value;
+        }
+
+        return total;
+      }
+
+      document.writeln(`<p>${sum(19, 38, 79, 66, 84, 34)}</p>`);
+      document.writeln(`<p>${sum(73, 43, 55, 26, 17, 33)}</p>`);
+    </script>
+  </body>
+</html>

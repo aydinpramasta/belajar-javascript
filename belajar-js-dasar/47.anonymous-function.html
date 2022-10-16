@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Anonymous Function</title>
+  </head>
+  <body>
+    <script>
+      // di variabel
+      const sayHello = function (name) {
+        console.log(`Hello ${name}`);
+      };
+
+      sayHello("John");
+
+      // di function argument
+      function giveMeFunction(callback, parameter) {
+        callback(parameter);
+      }
+
+      giveMeFunction(sayHello, "Doe");
+      giveMeFunction(function () {
+        console.log("Hi");
+      });
+      giveMeFunction(function (name) {
+        console.log(`Hi ${name}`);
+      }, "Sarah");
+    </script>
+  </body>
+</html>
