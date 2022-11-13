@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Arrow Function in Object</title>
+  </head>
+  <body>
+    <script>
+      // di anonymous function, kata kunci this di object akan mengembalikan object nya
+      // sedangkan di arrow function, akan mengembalikan window
+      const person = {
+        name: "John",
+        this: () => console.log(this),
+        sayHello: (name) => console.log(`Hello ${name}`),
+      };
+
+      person.this();
+      person.sayHello("Doe");
+    </script>
+  </body>
+</html>

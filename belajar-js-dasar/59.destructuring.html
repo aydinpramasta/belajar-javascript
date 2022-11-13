@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Destructuring</title>
+  </head>
+  <body>
+    <script>
+      // destructuring pada array
+      {
+        const names = ["John", "Doe", "Sarah", "Butt"];
+
+        const [firstName, lastName, ...others] = names;
+        console.log(firstName);
+        console.log(lastName);
+        console.log(others);
+      }
+
+      // destructuring pada object
+      {
+        const person = {
+          firstName: "John",
+          lastName: "Doe",
+          address: {
+            street: "Jalan Rambutan",
+            city: "Jakarta",
+          },
+        };
+
+        const {
+          firstName,
+          // membuat default value pada saat destructuring
+          middleName = "Test",
+          lastName,
+          // destructuring nested object
+          address: { street, city },
+        } = person;
+        console.log(firstName);
+        console.log(middleName);
+        console.log(lastName);
+      }
+
+      // destructuring pada function parameter
+      {
+        function displayNames({ firstName, middleName = "Test", lastName }) {
+          console.log(firstName);
+          console.log(middleName);
+          console.log(lastName);
+        }
+
+        const person = {
+          firstName: "Sarah",
+          lastName: "Butt",
+        };
+
+        displayNames(person);
+      }
+
+      // mengubah nama variabel hasil destructuring
+      {
+        const person = {
+          firstName: "Mr.",
+          lastName: "Pewterschmidth",
+        };
+
+        const {
+          firstName: namaDepan,
+          // tetap bisa membuat default value
+          middleName: namaTengah = "Test",
+          lastName: namaBelakang,
+        } = person;
+
+        console.log(namaDepan);
+        console.log(namaTengah);
+        console.log(namaBelakang);
+      }
+    </script>
+  </body>
+</html>

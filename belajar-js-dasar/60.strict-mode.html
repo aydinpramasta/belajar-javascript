@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Strict Mode</title>
+  </head>
+  <body>
+    <script>
+      // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode
+
+      // jika di dalam file javascript, bisa diaktifkan dengan string 'use strict' di baris pertama file
+      // bisa juga dipakai di dalam function
+
+      function useStrict() {
+        "use strict";
+
+        const person = { name: "John" };
+
+        // error
+        with (person) {
+          console.log(name);
+        }
+      }
+    </script>
+  </body>
+</html>

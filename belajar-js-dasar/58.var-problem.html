@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Var Problem</title>
+  </head>
+  <body>
+    <script>
+      /**
+       * var tidak direkomendasikan untuk digunakan lagi karena var tidak memiliki block scope
+       * sehingga membuat behaviour dari var tidak terprediksi
+       */
+
+      // contoh var
+      var i = 10;
+
+      for (var i = 0; i < 5; i++) {
+        console.log(`var local ${i}`);
+      }
+
+      console.log(`var global ${i}`);
+
+      // contoh let
+      let j = 10;
+
+      for (let j = 0; j < 5; j++) {
+        console.log(`let local ${j}`);
+      }
+
+      console.log(`let global ${j}`);
+    </script>
+  </body>
+</html>
