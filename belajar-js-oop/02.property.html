@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Property di Constructor Function</title>
+  </head>
+  <body>
+    <script>
+      function Person() {
+        // membuat property di constructor function dengan kata kunci this
+        this.firstName = null;
+        this.lastName = null;
+      }
+
+      const john = new Person();
+      john.firstName = "John";
+      john.lastName = "Doe";
+
+      const sarah = new Person();
+      sarah.firstName = "Sarah";
+
+      console.log(john);
+      console.log(sarah);
+    </script>
+  </body>
+</html>
