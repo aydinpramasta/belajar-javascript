@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Super Constructor</title>
+  </head>
+  <body>
+    <script>
+      class Employee {
+        constructor(name) {
+          this.name = name;
+        }
+
+        sayHello(name) {
+          console.log(
+            `Hello ${name}, my name is ${this.name}. I'm an employee.`,
+          );
+        }
+      }
+
+      class Manager extends Employee {
+        constructor(name, division) {
+          /**
+           * harus menggunakan method super jika ingin mengoverwrite constructor
+           */
+          super(name);
+
+          this.division = division;
+        }
+
+        sayHello(name) {
+          console.log(
+            `Hello ${name}, my name is ${this.name}. I'm the Manager of ${this.division}.`,
+          );
+        }
+      }
+
+      const john = new Employee("John");
+      console.log(john);
+      john.sayHello("Doe");
+
+      const sarah = new Manager("Sarah", "Finance");
+      console.log(sarah);
+      sarah.sayHello("Butt");
+    </script>
+  </body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Super Method</title>
+  </head>
+  <body>
+    <script>
+      class Shape {
+        paint() {
+          console.log("Painting shape...");
+        }
+      }
+
+      class Circle extends Shape {
+        paint() {
+          /**
+           * super method bisa digunakan untuk memanggil function dari prototype nya
+           * tidak harus method yang sama, bisa di method yang berbeda
+           */
+          super.paint();
+
+          console.log("Painted circle");
+        }
+      }
+
+      const circle = new Circle();
+      console.log(circle);
+      circle.paint();
+    </script>
+  </body>
+</html>
