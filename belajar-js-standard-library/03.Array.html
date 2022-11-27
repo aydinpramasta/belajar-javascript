@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array</title>
+  </head>
+  <body>
+    <script>
+      {
+        // array loop
+        const names = ["John", "Doe"];
+
+        names.forEach(function (value, index) {
+          console.log(`${index}: ${value}`);
+        });
+
+        names.forEach((value, index) => console.log(`${index}: ${value}`));
+
+        names.forEach((value) => console.log(`${value}`));
+      }
+
+      {
+        // array queue (First In First Out)
+        const queue = [];
+
+        // menambah antrian
+        queue.push("John");
+        queue.push("Sarah");
+
+        console.log(queue);
+
+        // menghapus antrian (menghapus data paling awal)
+        console.log(queue.shift());
+        console.log(queue);
+        console.log(queue.shift());
+        console.log(queue);
+      }
+
+      {
+        // array stack (Last In First Out)
+        const stack = [];
+
+        // menambah antrian
+        stack.push("John");
+        stack.push("Sarah");
+
+        console.log(stack);
+
+        // menghapus antrian (menghapus data paling awal)
+        console.log(stack.pop());
+        console.log(stack);
+        console.log(stack.pop());
+        console.log(stack);
+      }
+
+      {
+        // array search
+        const source = [1, 2, 3, 4, 5, 1, 2, 3, 4, 5];
+
+        // cari value pertama dengan value lebih dari 3
+        console.log(source.find((value) => value > 3));
+        // cari index pertama dengan value lebih dari 3
+        console.log(source.findIndex((value) => value > 3));
+        // cek apakah value ada di dalam array
+        console.log(source.includes(6));
+        // cari index pertama dengan value ini
+        console.log(source.indexOf(5));
+        // cari index terakhir dengan value ini
+        console.log(source.lastIndexOf(5));
+      }
+
+      {
+        // array filter. filter array berdasarkan kondisi yang diberikan
+        const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+        const ganjil = numbers.filter((value) => value % 2 === 1);
+        const genap = numbers.filter((value) => value % 2 === 0);
+
+        console.log(numbers);
+        console.log(ganjil);
+        console.log(genap);
+      }
+
+      {
+        // array transform
+        const name = "John Doe";
+        const names = name.split(" ");
+
+        console.log(names);
+        console.log(names.map((value) => value.toUpperCase()));
+        console.log(names.map((value) => value.toLowerCase()));
+        console.log(names.join(" "));
+        console.log(names.reduce((before, value) => `${before} ${value}`));
+        console.log(names.reduceRight((before, value) => `${before} ${value}`));
+      }
+    </script>
+  </body>
+</html>
