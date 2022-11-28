@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Date</title>
+  </head>
+  <body>
+    <script>
+      // date sekarang
+      const date1 = new Date();
+      // date dengan data year, month, dan day
+      const date2 = new Date(2022, 11, 28);
+      // date dengan data year, month, day, hour, minute, second, milisecond
+      const date3 = new Date(2022, 11, 28, 18, 50, 30, 355);
+      // date dengan epoch/unix timestamp
+      const date4 = new Date(1669636259137);
+
+      console.log(date1);
+      console.log(date2);
+      console.log(date3);
+      console.log(date4);
+
+      // epoch timestamp sekarang
+      console.log(Date.now());
+      // mengambil value epoch dari object Date
+      const epoch = new Date(Date.now());
+      console.log(epoch.getTime());
+
+      /**
+       * parsing date dari string
+       * format: YYYY-MM-DDTHH:mm:ss.sssZ
+       * YYYY => tahun
+       * MM => bulan
+       * DD => tanggal
+       * T => pemisah tanggal dan waktu
+       * HH => jam
+       * mm => menit
+       * ss => detik
+       * sss => milisecond
+       * Z => timezone
+       */
+      const parsedToObject = new Date("2022-11-28T18:58:30.435+07:00");
+      const parsedToEpoch = Date.parse("2022-11-28T18:58:30.435+07:00");
+
+      console.log(parsedToObject);
+      console.log(parsedToEpoch);
+
+      // date getter (and setter)
+      const now = new Date();
+
+      console.log(now.getFullYear());
+      console.log(now.getMonth());
+      console.log(now.getDate());
+      console.log(now.getHours());
+      console.log(now.getMinutes());
+      console.log(now.getSeconds());
+      console.log(now.getMilliseconds());
+      console.log(now.getTimezoneOffset()); // return selisih antara date sekarang dengan UTC
+    </script>
+  </body>
+</html>
