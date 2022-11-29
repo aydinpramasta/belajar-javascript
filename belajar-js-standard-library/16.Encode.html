@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Encode</title>
+  </head>
+  <body>
+    <script>
+      {
+        // encode & decode URI
+        const URI = "https://example.com/?name=John Doe";
+        const encoded = encodeURI(URI);
+        const decoded = decodeURI(encoded);
+
+        console.log(`URI: ${URI}`);
+        console.log(`Encoded: ${encoded}`);
+        console.log(`Decoded: ${decoded}`);
+      }
+
+      {
+        // encode & decode URI component
+        const URI = "https://example.com/?name=";
+        const component = "John&Anonymous=Doe";
+        const encoded = encodeURIComponent(component);
+        const decoded = decodeURIComponent(encoded);
+
+        console.log(`URI + Component: ${URI + component}`);
+        console.log(`Encoded: ${URI + encoded}`);
+        console.log(`Decoded: ${URI + decoded}`);
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Regular Expression</title>
+  </head>
+  <body>
+    <script>
+      {
+        const regex1 = /john/;
+        const regex2 = new RegExp("john");
+        const regex3 = new RegExp(/john/);
+
+        console.log(regex1);
+        console.log(regex2);
+        console.log(regex3);
+      }
+
+      {
+        let regex, name;
+
+        name = "John Doe";
+        regex = /John/;
+
+        console.log(regex.test(name));
+        console.log(regex.exec(name));
+
+        name = "Anonymous";
+        regex = /notfound/;
+
+        console.log(regex.test(name));
+        console.log(regex.exec(name));
+      }
+
+      {
+        /**
+         * regex modifier/flag
+         * i => case insensitive
+         * g => melakukan pencarian secara global (defaultnya: setelah menemukan data, pencarian akan berhenti)
+         * m => pencarian dilakukan tiap baris (multiline)
+         */
+        const name = "John Doe\njohn kennedy\njohn Doe";
+        const regex1 = /john/g;
+        const regex2 = /Doe/gi;
+        const regex3 = /^John/gim;
+
+        while ((result = regex1.exec(name)) !== null) {
+          console.log(result);
+        }
+
+        while ((result = regex2.exec(name)) !== null) {
+          console.log(result);
+        }
+
+        while ((result = regex3.exec(name)) !== null) {
+          console.log(result);
+        }
+      }
+
+      {
+        // regex di string
+        const name = "john doe doa doi dou doo";
+
+        console.log(name.match(/do[aiueo]/gi));
+        console.log(name.search(/do[aiueo]/gi));
+        console.log(name.replace(/do[aiueo]/i, "test"));
+        console.log(name.replaceAll(/do[aiueo]/gi, "test"));
+        console.log(name.split(/do/i));
+      }
+    </script>
+  </body>
+</html>
