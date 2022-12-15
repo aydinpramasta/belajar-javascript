@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NamedNodeMap</title>
+  </head>
+  <body>
+    <a id="link" href="//google.com" target="_blank">Link</a>
+
+    <script>
+      // mirip seperti NodeList, tetapi untuk list of attributes
+      const linkAttributes = document.getElementById("link").attributes;
+
+      console.log(linkAttributes);
+
+      for (const attribute of linkAttributes) {
+        console.log(`${attribute.name}: ${attribute.value}`);
+      }
+    </script>
+  </body>
+</html>

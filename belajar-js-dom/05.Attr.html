@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Attr/Atrribute</title>
+  </head>
+  <body>
+    <a id="link" href="#">Link</a>
+
+    <script>
+      const link = document.getElementById("link");
+
+      const linkHref = link.getAttributeNode("href");
+      const linkHrefValue = link.getAttribute("href");
+
+      console.log(linkHref.name);
+      console.log(linkHref.value);
+      console.log(linkHrefValue);
+
+      link.removeAttribute("href");
+
+      const createLinkHref = document.createAttribute("href");
+      createLinkHref.value = "//google.com";
+      link.setAttributeNode(createLinkHref);
+
+      link.setAttribute("target", "_blank");
+    </script>
+  </body>
+</html>

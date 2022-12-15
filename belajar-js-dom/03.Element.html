@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Element</title>
+  </head>
+  <body>
+    <div id="content" class="container">
+      <h1 id="title"></h1>
+      <p id="description"></p>
+    </div>
+
+    <script>
+      // Element merupakan salah bentuk dari Node
+      document.getElementById("title").textContent = "Javascript DOM";
+      document.getElementById("description").textContent =
+        "Selamat Belajar Javascript DOM";
+
+      // Element Property
+      const content = document.getElementById("content");
+
+      console.log(content.id);
+      console.log(content.className);
+      console.log(content.tagName);
+
+      // Element Method
+      document.getElementById("title").remove();
+      document.getElementById("description").remove();
+
+      const title = document.createElement("h1");
+      title.textContent = "Title ini dibuat oleh Javascript DOM";
+
+      const description = document.createElement("p");
+      description.textContent = "Description ini dibuat oleh Javascript DOM";
+
+      content.append(title, description);
+    </script>
+  </body>
+</html>
