@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Query Selector</title>
+  </head>
+  <body>
+    <ul>
+      <li id="first">First</li>
+      <li class="second">Second</li>
+      <li order="third">Third</li>
+    </ul>
+
+    <script>
+      // querySelector untuk mengambil element pertama yang cocok
+      // querySelector untuk mengambil semua element yang cocok
+      console.log(document.querySelector("li"));
+      console.log(document.querySelectorAll("li"));
+
+      // Selector universal
+      console.log(document.querySelectorAll("*"));
+      // Selector type
+      console.log(document.querySelectorAll("ul"));
+      // Selector id
+      console.log(document.querySelectorAll("#first"));
+      // Selector class
+      console.log(document.querySelectorAll(".second"));
+      // Selector attribute
+      console.log(document.querySelectorAll('[order="third"]'));
+    </script>
+  </body>
+</html>

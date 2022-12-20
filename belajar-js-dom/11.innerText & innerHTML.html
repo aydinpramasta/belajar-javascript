@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>innerText dan innerHTML</title>
+  </head>
+  <body>
+    <p id="paragraph">
+      <script>
+        console.log("Hey");
+      </script>
+
+      <b>Dwayne</b> "The Rock" <i>Johnson</i>
+    </p>
+
+    <div id="textContent"></div>
+    <div id="innerText"></div>
+    <div id="innerHTML"></div>
+
+    <script>
+      const paragraph = document.getElementById("paragraph");
+
+      console.log(paragraph.textContent);
+      console.log(paragraph.innerText);
+      console.log(paragraph.innerHTML);
+
+      document.getElementById("textContent").textContent =
+        "<h1>textContent</h1>";
+      document.getElementById("innerText").innerText = "<h1>innerText</h1>";
+      document.getElementById("innerHTML").innerHTML = "<h1>innerHTML</h1>";
+    </script>
+  </body>
+</html>
