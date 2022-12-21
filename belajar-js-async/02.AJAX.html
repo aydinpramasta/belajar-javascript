@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AJAX</title>
+  </head>
+  <body>
+    <pre id="response"></pre>
+
+    <script>
+      const pre = document.getElementById("response");
+
+      const request = new XMLHttpRequest();
+
+      request.open("GET", "api/test.json");
+
+      request.onreadystatechange = () => {
+        if (request.readyState === request.LOADING) {
+          pre.innerText = "Loading...";
+        }
+      };
+
+      request.onload = setTimeout(() => {
+        const response = request.responseText;
+
+        if (request.status === 200) {
+          pre.innerText = response;
+        } else {
+          pre.innerText = `Terjadi kesalahan dengan status ${request.status}`;
+        }
+      }, 3000);
+
+      request.send();
+    </script>
+  </body>
+</html>

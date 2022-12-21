@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>setTimeout & setInterval</title>
+  </head>
+  <body>
+    <h1 id="header"></h1>
+    <p id="time"></p>
+
+    <script>
+      const setHeader = () => {
+        document.getElementById("header").innerText =
+          "Belajar Javascript Async";
+      };
+
+      const setTime = () => {
+        document.getElementById("time").innerText = new Date().toTimeString();
+      };
+
+      // akan menjalankan function setHeader setelah 5 detik
+      setTimeout(setHeader, 5000);
+
+      // akan menjalankan function setTime terus menerus dalam selang waktu 1 detik
+      setInterval(setTime, 1000);
+    </script>
+  </body>
+</html>
