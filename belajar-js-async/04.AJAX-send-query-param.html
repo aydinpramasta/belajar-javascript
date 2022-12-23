@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mengirim Query Parameter dengan AJAX</title>
+  </head>
+  <body>
+    <form>
+      <input type="text" name="search" id="search" />
+      <button type="button" id="buttonSearch">Search</button>
+    </form>
+
+    <h1 id="header"></h1>
+    <pre id="response"></pre>
+  </body>
+
+  <script>
+    const doSearch = () => {
+      // data yang akan dikirim melalui query parameter
+      const query = new URLSearchParams();
+      query.append("search", document.getElementById("search").value);
+
+      const request = new XMLHttpRequest();
+      request.open(
+        "GET",
+        `https://async.free.beeceptor.com?${query.toString()}`,
+      );
+      request.onload = () => {
+        document.getElementById("header").innerText = "Response: ";
+        document.getElementById("response").innerText = request.responseText;
+      };
+      request.send();
+
+      document.forms.item(0).reset();
+    };
+
+    document.getElementById("buttonSearch").onclick = doSearch;
+  </script>
+</html>

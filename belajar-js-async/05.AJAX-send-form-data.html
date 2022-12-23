@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mengirim Form Data dengan AJAX</title>
+  </head>
+  <body>
+    <form>
+      <label for="username">
+        Username: <input type="text" name="username" id="username" />
+      </label>
+      <label for="password">
+        Password: <input type="password" name="password" id="password" />
+      </label>
+      <button type="button" id="login">Login</button>
+    </form>
+
+    <h1 id="header"></h1>
+    <pre id="response"></pre>
+  </body>
+
+  <script>
+    const doLogin = () => {
+      const data = new URLSearchParams();
+      data.append("username", document.getElementById("username").value);
+      data.append("password", document.getElementById("password").value);
+
+      const request = new XMLHttpRequest();
+      request.open("POST", "https://async.free.beeceptor.com");
+      request.setRequestHeader(
+        "Content-Type",
+        "application/x-www-form-urlencoded",
+      );
+      request.onload = () => {
+        document.getElementById("header").innerText = "Response: ";
+        document.getElementById("response").innerText = request.responseText;
+      };
+      request.send(data);
+
+      document.forms.item(0).reset();
+    };
+
+    document.getElementById("login").onclick = doLogin;
+  </script>
+</html>
