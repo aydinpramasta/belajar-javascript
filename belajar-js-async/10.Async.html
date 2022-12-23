@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Async</title>
+  </head>
+  <body>
+    <script>
+      // async hanya bisa digunakan di function
+      // tidak perlu return promise karena async sudah mengembalikan promise
+
+      // Promise
+      function getNamePromise() {
+        return new Promise((resolve) => {
+          resolve("Promise");
+        });
+      }
+
+      // Async
+      async function getNameAsync() {
+        return "Async";
+      }
+
+      getNamePromise().then((name) => console.log(name));
+      getNameAsync().then((name) => console.log(name));
+    </script>
+  </body>
+</html>

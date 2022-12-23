@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Promise</title>
+  </head>
+  <body>
+    <table border="1">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Price</th>
+      </tr>
+      <tr>
+        <td id="id"></td>
+        <td id="name"></td>
+        <td id="price"></td>
+      </tr>
+    </table>
+
+    <script>
+      const getProduct = () => {
+        return new Promise((resolve, reject) => {
+          // di dalam sini adalah kode yang bersifat asynchronous
+          const request = new XMLHttpRequest();
+          request.open("GET", "api/product.json");
+          request.onload = () => {
+            if (request.status === 200) {
+              resolve(request.responseText);
+            } else {
+              reject(`Error with status ${request.status}`);
+            }
+          };
+          request.send();
+        });
+      };
+
+      getProduct() // return promise
+        // akan dijalankan ketika promise berhasil (fulfilled), returnnya promise lagi dengan response yang sudah di parse
+        .then((response) => JSON.parse(response))
+        .then((json) => {
+          document.getElementById("id").innerText = json.id;
+          document.getElementById("name").innerText = json.name;
+          document.getElementById("price").innerText = json.price;
+        })
+        // akan dijalankan ketika promise tidak berhasil
+        .catch((error) => console.error(error))
+        // akan dijalankan entah promisenya berhasil atau gagal
+        .finally(() => console.log("Promise selesai"));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Promise Method</title>
+  </head>
+  <body>
+    <script>
+      const get = (url) => {
+        return new Promise((resolve, reject) => {
+          const request = new XMLHttpRequest();
+          request.open("GET", url);
+          request.onload = () => {
+            if (request.status === 200) {
+              resolve(request.responseText);
+            } else {
+              reject(`Error with status ${request.status}`);
+            }
+          };
+          request.send();
+        });
+      };
+
+      // akan menjalankan 3 promise sekaligus
+      const promiseAll = Promise.all([
+        get("api/a.json"),
+        get("api/b.json"),
+        get("api/c.json"),
+      ]);
+
+      // menjalankan 3 promise sekaligus tapi hanya mengembalikan 1 promise yang fulfilled paling cepat
+      const promiseAny = Promise.any([
+        get("api/ab.json"), // error 404
+        get("api/b.json"),
+        get("api/c.json"),
+      ]);
+
+      // menjalankan 3 promise sekaligus dan hanya mengembalikan 1 promise paling cepat meskipun promise itu rejected
+      const promiseRace = Promise.race([
+        get("api/ab.json"), // error 404
+        get("api/b.json"),
+        get("api/c.json"),
+      ]);
+
+      promiseAll.then((response) => console.log(response)); // return array of content file a b dan c
+      promiseAny.then((response) => console.log(response)); // return content file b.json karna tidak ada file ab.json
+      promiseRace.then((response) => console.log(response)); // error karna file ab.json tidak ada
+    </script>
+  </body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>With Web Worker</title>
+  </head>
+  <body>
+    <button type="button" id="loop">Click Me</button>
+
+    <script>
+      // website tidak hang karna tugas diberikan ke thread lain, bukan di main thread
+      const worker = new Worker("scripts/worker.js");
+      worker.onmessage = (message) => {
+        console.log(message.data);
+      };
+
+      document.getElementById("loop").onclick = () => {
+        worker.postMessage(25000);
+      };
+    </script>
+  </body>
+</html>

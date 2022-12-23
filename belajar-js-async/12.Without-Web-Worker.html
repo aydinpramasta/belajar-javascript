@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Without Web Worker</title>
+  </head>
+  <body>
+    <button type="button" id="loop">Click Me</button>
+
+    <script>
+      // akan membuat website nge-hang karna pekerjaan dilakukan di main thread
+      document.getElementById("loop").onclick = () => {
+        for (let i = 1; i <= 25000; i++) {
+          console.log(i);
+        }
+      };
+    </script>
+  </body>
+</html>
